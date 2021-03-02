@@ -1,0 +1,43 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Procura por nome" [(ngModel)]="name" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchName()">
+          Pesquisar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Lista de Usuários</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let user of user; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveUser(user, i)">
+        {{ user.name }}
+      </li>
+    </ul>
+
+    <button class="m-2 btn btn-sm btn-danger" (click)="removeAllUsers()">
+      Deletar tudo
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentUser">
+      <h4>Usuário</h4>
+      <div>
+        <label><strong>Nome:</strong></label> {{ currentUser.name }}
+      </div>
+
+      <a class="badge badge-warning" href="/user/{{ currentUser.id }}">
+        Editar
+      </a>
+    </div>
+
+    <div *ngIf="!currentUser">
+      <br />
+      <p>Para editar selecione o usuário</p>
+    </div>
+  </div>
+</div>

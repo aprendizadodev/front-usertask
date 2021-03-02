@@ -1,0 +1,25 @@
+<div *ngIf="currentUser" class="edit-form">
+  <h4>Usuário</h4>
+  <form>
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="currentUser.name" name="name" />
+    </div>
+  </form>
+
+  <button class="btn btn-danger" (click)="deleteUser()">
+    Deletar
+  </button>
+  &nbsp;
+  <button type="submit" class="btn btn-success" (click)="updateUser()">
+    Atualizar
+  </button>
+  <br>
+  <br>
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentUser">
+  <br />
+  <p>Não é possível acessar este usuário</p>
+</div>

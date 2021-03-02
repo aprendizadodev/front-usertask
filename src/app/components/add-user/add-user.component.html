@@ -1,0 +1,15 @@
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" />
+    </div>
+
+    <button (click)="saveUser()" class="btn btn-success">Enviar</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>Usuário salvo com sucesso!</h4>
+    <button class="btn btn-success" (click)="newUser()">Adicionar</button>
+  </div>
+</div>
